@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add User Form</title>
+</head>
+<body>
+    <h1>Add User</h1>
+    <form action="/add_user" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="device_id">Select Device:</label>
+        <select id="device_id" name="device_id" required>
+            {% for device_id in device_ids %}
+            <option value="{{ device_id }}">{{ device_id }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Add User">
+    </form>
+</body>
+</html>
+
