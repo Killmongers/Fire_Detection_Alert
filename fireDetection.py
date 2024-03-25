@@ -32,6 +32,14 @@ collection = db['Log']
 def play_alarm_sound_function():
     global alarm_playing
     alarm_playing = True
+<<<<<<< HEAD
+=======
+
+    pygame.mixer.music.load('C:\\Users\\mooly\\Downloads\\Fire_Detection_Alert-main\\fire_alarm.mp3')
+
+    pygame.mixer.music.play()
+    print("Fire alarm end")
+>>>>>>> 688c818960721a01c57f582cb4500bad53ebab7b
 
     pygame.mixer.music.load('C:\\Users\\mooly\\Downloads\\Fire_Detection_Alert-main\\fire_alarm.mp3')
     pygame.mixer.music.play()
