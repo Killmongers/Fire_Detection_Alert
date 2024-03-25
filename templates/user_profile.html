@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .user-details {
+            margin-bottom: 20px;
+        }
+        .user-details label {
+            font-weight: bold;
+        }
+        .user-details p {
+            margin: 5px 0;
+        }
+        .logout-btn {
+            text-align: center;
+        }
+        .logout-btn button {
+            padding: 10px 20px;
+            background-color: #ff6347;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="user-details">
+            <p><label>First Name:</label> {{ user.firstname }}</p>
+            <p><label>Last Name:</label> {{ user.lastname }}</p>
+            <p><label>Email:</label> {{ user.email }}</p>
+            <p><label>Place:</label> {{ user.place }}</p>
+            <p><label>Phone Number:</label> {{ user.phoneNo }}</p>
+            <p><label>Device ID:</label> {{ user.device_id }}</p>
+        </div>
+        <div class="logout-btn">
+            <form action="/logout" method="GET">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

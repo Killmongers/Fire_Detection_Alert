@@ -3,24 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fire Detection Web App</title>
+    <title>Fire Detection System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .about-section {
+            margin-bottom: 20px;
+        }
+        .about-section p {
+            margin: 5px 0;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .signin-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .signin-button:hover {
+            background-color: #0056b3;
+        }
+        .admin-button {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .admin-button:hover {
+            background-color: #bd2130;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Fire Detection</h1>
-    
-    <h2>Add Device</h2>
-    <ul>
-        <li><a href="/add_device_form">Add device</a></li>
-        <!-- Add more navigation links as needed -->
-    </ul>
-    
-
-    <h2>Add User</h2>
-    <ul>
-        <li><a href="/add_user_form">Add User</a></li>
-        <!-- Add more navigation links as needed -->
-    </ul>
-
-
+    <div class="container">
+        <h1>Fire Detection System</h1>
+        <div class="about-section">
+            <h2>About the Project</h2>
+            <p>This project aims to detect fire incidents using various sensors and alert the authorities or users.</p>
+        </div>
+        <div class="button-container">
+            <button class="signin-button" onclick="location.href='login'">Sign In</button>
+            <button class="admin-button" onclick="location.href='admin_login'">Admin Login</button>
+        </div>
+    </div>
 </body>
 </html>

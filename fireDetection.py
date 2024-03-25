@@ -5,6 +5,9 @@ import smtplib
 import math
 import cvzone
 from ultralytics import YOLO
+import logging
+from datetime import datetime
+from pymongo import MongoClient
 
 # Initialize Pygame for playing sound
 pygame.init()
@@ -19,32 +22,36 @@ classnames = ['fire', 'smoke']
 # Initialize variables
 alarm_playing = False
 
+
+# Connect to MongoDB
+client = MongoClient('mongodb://localhost:27017/')  # Update the connection string accordingly
+db = client['fire_detection_db']
+collection = db['Log']
+
 # Function to play alarm sound
 def play_alarm_sound_function():
     global alarm_playing
     alarm_playing = True
-<<<<<<< HEAD
-    pygame.mixer.music.load('C:\\Users\\mooly\\Downloads\\Fire_Detection_Alert-main\\fire_alarm.mp3')
-=======
-    pygame.mixer.music.load('/home/killmonger/fire-detection-python-opencv/fire_alarm.mp3')
->>>>>>> 39da498b1216e2f158b1dfaff5357ff02fb76e4a
-    pygame.mixer.music.play()
-    print("Fire alarm end")
 
-# Function to send email
-def send_mail_function():
-    recipientmail = "add recipients mail"
-    recipientmail = recipientmail.lower()
-    try:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.ehlo()
-        server.starttls()
-        server.login("add senders mail", 'add senders password')
-        server.sendmail('add senders mail', recipientmail, "Warning fire accident has been reported")
-        print("Alert mail sent successfully to {}".format(recipientmail))
-        server.close()
-    except Exception as e:
-        print(e)
+    pygame.mixer.music.load('C:\\Users\\mooly\\Downloads\\Fire_Detection_Alert-main\\fire_alarm.mp3')
+    pygame.mixer.music.play()
+
+    print("Fire alarm playing")
+
+# # Function to send email
+# def send_mail_function():
+#     recipientmail = "add recipients mail"
+#     recipientmail = recipientmail.lower()
+#     try:
+#         server = smtplib.SMTP('smtp.gmail.com', 587)
+#         server.ehlo()
+#         server.starttls()
+#         server.login("add senders mail", 'add senders password')
+#         server.sendmail('add senders mail', recipientmail, "Warning fire accident has been reported")
+#         print("Alert mail sent successfully to {}".format(recipientmail))
+#         server.close()
+#     except Exception as e:
+#         print(e)
 
 # Start video capture
 vid = cv2.VideoCapture(0)
@@ -73,6 +80,15 @@ while True:
                                    scale=1.5, thickness=2)
                 if not alarm_playing:
                     threading.Thread(target=play_alarm_sound_function).start()
+                
+                # Log detection event to MongoDB
+                log_data = {
+                    'timestamp': datetime.now(),
+                    'place':"" ,
+                    'username':"",
+                    'device_id':""
+                }
+                collection.insert_one(log_data)
 
     cv2.imshow('frame', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
