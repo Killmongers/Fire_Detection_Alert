@@ -19,7 +19,11 @@ alarm_playing = False
 def play_alarm_sound_function():
     global alarm_playing
     alarm_playing = True
+<<<<<<< HEAD
     playsound('C:\\Users\\mooly\\Downloads\\Fire_Detection_Alert-main\\fire_alarm.mp3')
+=======
+    playsound('/home/killmonger/fire-detection-python-opencv/fire_alarm.mp3')
+>>>>>>> 39da498b1216e2f158b1dfaff5357ff02fb76e4a
     print("Fire alarm end")
 
 # Function to send email
