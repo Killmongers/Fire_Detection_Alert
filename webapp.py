@@ -21,9 +21,9 @@ secret_key = os.urandom(24)
 # Set the secret key for the Flask application
 app.secret_key = secret_key
 
-# Create a unique index on the device_id field in the device_detail collection
+# Create a unique index on the device_id field in the users collection
 try:
-    db.device_detail.create_index("device_id", unique=True)
+    db.users.create_index("device_id", unique=True)
     print("Unique index created successfully on device_id field.")
 except pymongo.errors.OperationFailure as e:
     print("Error creating unique index:", e)
